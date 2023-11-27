@@ -1,75 +1,88 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const calculateBtn = document.getElementById('calculate-btn');
-  const matrix1Inputs = document.querySelectorAll('#matrix1 .input');
-  const matrix2Inputs = document.querySelectorAll('#matrix2 .input');
-  const resultInputs = document.querySelectorAll('.result .input');
-  const animationBox = document.getElementById('animation');
+const matrixA = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
 
-  calculateBtn.addEventListener('click', () => {
-    const matrix1 = getMatrixValues(matrix1Inputs);
-    const matrix2 = getMatrixValues(matrix2Inputs);
+const matrixB = [
+  [9, 8, 7],
+  [6, 5, 4],
+  [3, 2, 1]
+];
 
-    if (matrix1.includes(null) || matrix2.includes(null)) {
-      alert('Please fill in all matrix values');
-      return;
-    }
+const matrixContainerA = document.getElementById('matrixA');
+const matrixContainerB = document.getElementById('matrixB');
+const calculationSteps = document.getElementById('calculationSteps');
+const resultMatrixDiv = document.getElementById('resultMatrix');
 
-    multiplyMatrices(matrix1, matrix2);
+function displayMatrix(matrix, container) {
+  matrix.forEach(row => {
+      row.forEach(cell => {
+          const cellDiv = document.createElement('div');
+          cellDiv.classList.add('cell');
+          cellDiv.textContent = cell;
+          container.appendChild(cellDiv);
+      });
   });
+}
 
-  function getMatrixValues(inputs) {
-    const values = [];
-    inputs.forEach(input => {
-      values.push(parseFloat(input.value) || null);
-    });
-    return values;
-  }
+function multiplyMatrices(matrixA, matrixB) {
+  const result = [];
 
-  function multiplyMatrices(matrix1, matrix2) {
-    animateMultiplication(matrix1, matrix2);
-    displayResult(matrix1, matrix2);
-  }
+  for (let i = 0; i < matrixA.length; i++) {
+      const newRow = [];
 
-  function animateMultiplication(matrix1, matrix2) {
-    const results = [
-      matrix1[0] * matrix2[0] + matrix1[1] * matrix2[2],
-      matrix1[0] * matrix2[1] + matrix1[1] * matrix2[3],
-      matrix1[2] * matrix2[0] + matrix1[3] * matrix2[2],
-      matrix1[2] * matrix2[1] + matrix1[3] * matrix2[3],
-    ];
+      for (let j = 0; j < matrixB[0].length; j++) {
+          let sum = 0;
+          let calculation = '';
 
-    let counter = 0;
-    const interval = setInterval(() => {
-      if (counter === 4) {
-        clearInterval(interval);
-        return;
+          for (let k = 0; k < matrixB.length; k++) {
+              sum += matrixA[i][k] * matrixB[k][j];
+              calculation += `${matrixA[i][k]} * ${matrixB[k][j]}`;
+              if (k !== matrixB.length - 1) {
+                  calculation += ' + ';
+              }
+          }
+
+          newRow.push({ value: sum, calculation });
       }
-      animateResult(counter, results[counter]);
-      counter++;
-    }, 500);
+
+      result.push(newRow);
   }
 
-  function displayResult(matrix1, matrix2) {
-    const results = [
-      matrix1[0] * matrix2[0] + matrix1[1] * matrix2[2],
-      matrix1[0] * matrix2[1] + matrix1[1] * matrix2[3],
-      matrix1[2] * matrix2[0] + matrix1[3] * matrix2[2],
-      matrix1[2] * matrix2[1] + matrix1[3] * matrix2[3],
-    ];
+  return result;
+}
 
-    resultInputs[0].value = results[0];
-    resultInputs[1].value = results[1];
-    resultInputs[2].value = results[2];
-    resultInputs[3].value = results[3];
-  }
+function displayCalculationSteps(resultMatrix) {
+  resultMatrix.forEach(row => {
+      row.forEach(({ value, calculation }) => {
+          const cellDiv = document.createElement('div');
+          cellDiv.classList.add('cel');
+          cellDiv.textContent = calculation + ' = ' + value;
+          calculationSteps.appendChild(cellDiv);
+      });
+  });
+}
 
-  function animateResult(index, value) {
-    setTimeout(() => {
-      resultInputs[index].style.opacity = '0';
-      setTimeout(() => {
-        resultInputs[index].value = value;
-        resultInputs[index].style.opacity = '1';
-      }, 200);
-    }, index * 300);
-  }
-});
+function displayResultMatrix(resultMatrix) {
+  resultMatrix.forEach(row => {
+      const rowDiv = document.createElement('div');
+      rowDiv.classList.add('row');
+
+      row.forEach(({ value }) => {
+          const cellDiv = document.createElement('div');
+          cellDiv.classList.add('cell', 'result-cell');
+          cellDiv.textContent = value;
+          rowDiv.appendChild(cellDiv);
+      });
+
+      resultMatrixDiv.appendChild(rowDiv);
+  });
+}
+
+displayMatrix(matrixA, matrixContainerA);
+displayMatrix(matrixB, matrixContainerB);
+
+const result = multiplyMatrices(matrixA, matrixB);
+displayCalculationSteps(result);
+displayResultMatrix(result);

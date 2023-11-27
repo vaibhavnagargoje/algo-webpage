@@ -4,6 +4,7 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -15,21 +16,36 @@
     <main>
         <div class="list">
             <ul type="square">
-                <li>List Of Programs</li>
-                <li><a href="factorial/index.html">Factorial</a></li>
-                <li> <a href="fibonachi/">Fibonachi</a></li>
-                <li> <a href="Palindrome/index.html">Plaindrome</a></li>
-                <li>Matrix Multiplication</li>
-                <li>Strassen's Matrix Multiplication</li>
+                <li id="list-heading">List Of Programs</li>
+                <a href="factorial/index.html">
+                    <li onmouseover="fact()" onmouseleave="clr()">Factorial</li>
+
+                </a>
+                <a href="palindrome/index.html">
+                    <li onmouseover="plaindrome()" onmouseleave="clr()">Plaindrome</li>
+                </a>
+                <a href="matrix/index.html">
+                    <li onmouseover="multi()" onmouseleave="clr()">Matrix Multiplication</li>
+
+                </a>
+                <a href="">
+                    <li onmouseover="strassen()" onmouseleave="clr()">Strassen's Matrix Multiplication</li>
+                </a>
             </ul>
             <div>
-                <button class="button" role="button">BEGIN</button>
+                <a href="algorithm.html"> <button class="button" role="button">BEGIN</button> </a>
             </div>
+        </div>
+        <div id="box">
+            <!-- <div>
+                <a href="algorithm.html"> <button class="button" role="button">BEGIN</button> </a>
+             </div> -->
+            <pre id="info"></pre>
         </div>
     </main>
     <footer>
         <div class="footer">Algorithms</div>
-        <div class="logo"> 
+        <div class="logo">
             <img src="Images/html-logo.png" alt="logo" height="30px" width="30px">
             <img src="Images/css-logo.png" alt="logo" height="30px" width="30px">
             <img src="Images/js-logo.png" alt="logo" height="30px" width="30px">

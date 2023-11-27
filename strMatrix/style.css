@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    margin-top: 50px;
+  }
+  
+  .matrices {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .matrix {
+    border: 2px solid #333;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+  }
+  
+  .cell {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin: 2px;
+    transition: background-color 0.5s, transform 0.3s ease-in-out;
+  }
+  .cel{
+    /* display: flexbox; */
+    width: 100px;
+    height: 100px;
+    border: 2px solid ;
+    margin: 4px;
+    text-align: center;
+    font-size: 21px;
+  }
+  
+  .calculation-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .fade-in.active {
+    opacity: 1;
+  }
+  
+  
+  .result-matrix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  
+  .result-cell {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin: 2px;
+  }
