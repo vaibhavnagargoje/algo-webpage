@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Programs</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <div class="header">
-                <h1> <a href="index.html"> <img id="home" src="Images/home-logo.png" alt="logo" height="50px" width="50px">  </a>
-                    ALGORITHMS </h1>
-            </div>
-        </header>
-        <main>
-            <div></div>
-        </main>
 
-        <footer>
-            <div class="footer">Programs</div>
-            <div class="logo"> 
-                <img src="Images/html-logo.png" alt="logo" height="30px" width="30px">
-                <img src="Images/css-logo.png" alt="logo" height="30px" width="30px">
-                <img src="Images/js-logo.png" alt="logo" height="30px" width="30px">
+<head>
+    <title>Programs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <h1> <a href="index.html"> <img id="home" src="Images/home-logo.png" alt="logo" height="50px" width="50px">
+                </a>
+                ALGORITHMS </h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <select name="algo" id="opt" >
+                <option value="" disabled selected>--Select an Algorithm--</option>
+                <option value="factorial">Fibonacci Series</option>
+                <option value="palindrome">Palindrome</option>
+                <option value="matrix">Matrix Multiplication</option>
+                <option value="strassen">Strassen's Matrix Multiplication</option>
+            </select>
+            <button id="button" role="button">Start</button>
+            <div id="program">
+                <iframe src="" id="display" frameborder="1"  width="80%" height="600px"></iframe>
             </div>
-        </footer>
-    </body>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">Programs</div>
+        <div class="logo">
+            <img src="Images/html-logo.png" alt="logo" height="30px" width="30px">
+            <img src="Images/css-logo.png" alt="logo" height="30px" width="30px">
+            <img src="Images/js-logo.png" alt="logo" height="30px" width="30px">
+        </div>
+    </footer>
+</body>
+
 </html>

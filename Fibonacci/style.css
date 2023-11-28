@@ -1,0 +1,117 @@
+body{
+    background-color: white;
+}
+
+.container{
+    width: 1000px;
+    margin: auto;
+}
+
+input[type=number] {
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid red;
+}
+
+input[type=number]:active{
+    border: none;
+}
+
+input[type=number]:focus{
+    border: none;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #input-box {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  #input-box h1 {
+    margin-bottom: 20px;
+  }
+  
+  #input-box label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #calculate-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #1cda22;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin: 20px;
+  }
+
+  #calculate-btn:hover{
+    background-color: rgba(24, 168, 29, 0.78);
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  
+  #animation-container {
+    
+    height: 120px;
+    width: 1000px;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: center;
+  }
+  
+  /* .animation-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  } */
+
+  .animation-box {
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  }
+  
+  #result-box {
+    padding: 20px;
+  }
+  
+  #fibonacci-result {
+    font-size: 18px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
